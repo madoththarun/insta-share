@@ -42,7 +42,6 @@ class MyProfile extends Component {
       const updatedData = {
         followersCount: data.user_details.followers_count,
         followingCount: data.user_details.following_count,
-        id: data.user_details.id,
         posts: data.user_details.posts,
         postsCount: data.user_details.posts_count,
         profilePic: data.user_details.profile_pic,
@@ -66,7 +65,6 @@ class MyProfile extends Component {
     const {
       followersCount,
       followingCount,
-      id,
       userBio,
       userId,
       userName,
@@ -75,6 +73,7 @@ class MyProfile extends Component {
       postsCount,
       profilePic,
     } = myProfileData
+
     return (
       <div className="main_container">
         <div className="user_profile_large_container">
@@ -183,4 +182,5 @@ class MyProfile extends Component {
     )
   }
 }
+
 export default MyProfile

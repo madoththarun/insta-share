@@ -12,6 +12,7 @@ import './index.css'
 const Header = props => {
   const [isOpen, setHamburgerButton] = useState(false)
   const [searchBarVisible, setShowSearchBar] = useState(false)
+
   return (
     <SearchContext.Consumer>
       {value => {
@@ -75,7 +76,6 @@ const Header = props => {
           }
           const response = await fetch(apiUrl, options)
           const data = await response.json()
-          console.log(data)
           if (response.ok === true) {
             const updatedData = data.posts.map(eachPost => ({
               postId: eachPost.post_id,
@@ -121,11 +121,13 @@ const Header = props => {
                     className="searchBar"
                     type="search"
                     placeholder="Search Caption"
+                    aria-label="Search for posts by caption"
                   />
                   <button
                     onClick={getUserSearchPosts}
                     className="searchButton"
                     type="button"
+                    aria-label="Click to search posts"
                     testid="searchIcon"
                   >
                     <FaSearch className="searchIcon" />
@@ -143,6 +145,7 @@ const Header = props => {
                   onClick={onClickLogout}
                   type="button"
                   className="logout_button"
+                  aria-label="Log out from Insta Share"
                 >
                   Logout
                 </button>
@@ -165,6 +168,7 @@ const Header = props => {
                   testid="hamburgerIcon"
                   className="hamburgerButton"
                   type="button"
+                  aria-label="Open navigation menu"
                 >
                   <GiHamburgerMenu className="hamburgerIcon" />
                 </button>
@@ -178,12 +182,15 @@ const Header = props => {
                     <Link to="/my-profile" className="nav_item">
                       <li>Profile</li>
                     </Link>
-                    <li onClick={showSearchBar}>Search</li>
+                    <li onClick={showSearchBar} aria-label="Open search bar">
+                      Search
+                    </li>
                   </ul>
                   <button
                     onClick={onClickLogout}
                     type="button"
                     className="logout_button"
+                    aria-label="Log out from Insta Share"
                   >
                     Logout
                   </button>
@@ -191,6 +198,7 @@ const Header = props => {
                     onClick={() => setHamburgerButton(!isOpen)}
                     type="button"
                     className="hamburgerButton"
+                    aria-label="Close navigation menu"
                   >
                     <IoCloseCircle className="hamburgerIcon" />
                   </button>
@@ -204,11 +212,13 @@ const Header = props => {
                     className="searchBar"
                     type="search"
                     placeholder="Search Caption"
+                    aria-label="Search for posts by caption in mobile view"
                   />
                   <button
                     onClick={getUserSearchPosts}
                     className="searchButton"
                     type="button"
+                    aria-label="Click to search posts"
                     testid="searchIcon"
                   >
                     <FaSearch className="searchIcon" />
@@ -222,4 +232,5 @@ const Header = props => {
     </SearchContext.Consumer>
   )
 }
+
 export default withRouter(Header)

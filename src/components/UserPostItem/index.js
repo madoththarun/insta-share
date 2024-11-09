@@ -45,6 +45,7 @@ const UserPostItem = props => {
             testid="unLikeIcon"
             type="button"
             className="icon_button"
+            aria-label="Unlike post"
           >
             <FcLike className="likeIcon" />
           </button>
@@ -54,15 +55,26 @@ const UserPostItem = props => {
             testid="likeIcon"
             type="button"
             className="icon_button"
+            aria-label="Like post"
           >
             <BsHeart className="icon" />
           </button>
         )}
 
-        <button testid="commentIcon" type="button" className="icon_button">
+        <button
+          testid="commentIcon"
+          type="button"
+          className="icon_button"
+          aria-label="Comment on post"
+        >
           <FaRegComment className="icon" />
         </button>
-        <button testid="shareIcon" type="button" className="icon_button">
+        <button
+          testid="shareIcon"
+          type="button"
+          className="icon_button"
+          aria-label="Share post"
+        >
           <BiShareAlt className="icon" />
         </button>
       </div>
@@ -72,7 +84,7 @@ const UserPostItem = props => {
         {updatedComments.map(eachComment => (
           <li className="comment_item" key={eachComment.commentUserId}>
             <Link to={`/users/${eachComment.commentUserId}`}>
-              <span className="commentUSerName">
+              <span className="commentUserName">
                 {eachComment.commentUserName}
               </span>
             </Link>

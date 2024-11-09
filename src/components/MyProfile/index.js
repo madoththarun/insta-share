@@ -38,7 +38,6 @@ class MyProfile extends Component {
       const updatedData = {
         followersCount: data.profile.followers_count,
         followingCount: data.profile.following_count,
-        id: data.profile.id,
         posts: data.profile.posts,
         postsCount: data.profile.posts_count,
         profilePic: data.profile.profile_pic,
@@ -62,7 +61,6 @@ class MyProfile extends Component {
     const {
       followersCount,
       followingCount,
-      id,
       userBio,
       userId,
       userName,
@@ -71,6 +69,7 @@ class MyProfile extends Component {
       postsCount,
       profilePic,
     } = myProfileData
+
     return (
       <div className="main_container">
         <div className="my_profile_large_container">
@@ -95,29 +94,6 @@ class MyProfile extends Component {
             <p className="my_profile_bioText">{userBio}</p>
           </div>
         </div>
-
-        {/* <div className="my_profile_mobile_container">
-          <h1 className="myProfileName">{userName}</h1>
-          <div className="my_profile_div">
-            <img src={profilePic} alt="my profile" className="myProfilePic" />
-            <div className="count_div">
-              <p className="text">
-                <span className="count">{postsCount} </span>
-                posts
-              </p>
-              <p className="text">
-                <span className="count">{followersCount} </span>
-                followers
-              </p>
-              <p className="text">
-                <span className="count">{followingCount} </span>
-                following
-              </p>
-            </div>
-          </div>
-          <p className="my_profile_user_id">{userId}</p>
-          <p className="my_profile_bioText">{userBio}</p>
-        </div> */}
         <ul className="my_profile_stories_container">
           {stories.map(eachStory => (
             <li key={eachStory.id}>
@@ -198,4 +174,5 @@ class MyProfile extends Component {
     )
   }
 }
+
 export default MyProfile
